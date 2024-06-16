@@ -69,7 +69,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.bengkelly.customer.co.id"
+        applicationId "com.autobenz.customer.co.id"
         minSdkVersion 24
         targetSdkVersion 33
         versionCode versionCodeGlobal

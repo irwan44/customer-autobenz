@@ -34,10 +34,11 @@ class _HomePageState extends State<HomePage> {
   String _currentAddress = 'Mengambil lokasi...';
   Position? _currentPosition;
   final List<String> imgList = [
-    'assets/images/slide-2.jpg',
-    'assets/images/slide-3.jpg',
-    'assets/images/slider1.png',
-    'assets/images/promo1.jpeg',
+    'assets/images/gambar1.jpg',
+    'assets/images/gambar2.jpg',
+    'assets/images/gambar3.jpg',
+    'assets/images/gambar4.jpg',
+    'assets/images/gambar5.jpg',
   ];
   late RefreshController _refreshController;
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -209,12 +210,6 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: 20),
                 _menuItemsRow(),
                 SizedBox(height: 20),
-                _menuItemsRow2(),
-                SizedBox(height: 20),
-                _sectionTitle('Lokasi Bengkelly'),
-                SizedBox(height: 20),
-                _SliderLokasi(context),
-                SizedBox(height: 20),
                 _sectionTitle1('Spesialis Offer'),
                 SizedBox(height: 20),
                 _SliderOffer(context),
@@ -269,7 +264,7 @@ class _HomePageState extends State<HomePage> {
         ),
         const SizedBox(height: 10),
         Container(
-          width: 100,
+          width: 130,
           decoration: BoxDecoration(
             color: MyColors.slider,
             borderRadius: BorderRadius.circular(10),
@@ -398,9 +393,7 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(title, style: GoogleFonts.nunito(fontWeight: FontWeight.bold, fontSize: 17, color: MyColors.appPrimaryColor)),
-          SlideCountdownSeparated(
-            duration: const Duration(days: 1),
-          ),
+
           InkWell(
             onTap: () {
               Get.toNamed(Routes.LIHATSEMUASPESIALIS);
@@ -425,6 +418,13 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(title, style: GoogleFonts.nunito(fontWeight: FontWeight.bold, fontSize: 17, color: MyColors.appPrimaryColor)),
+          SlideCountdownSeparated(
+            duration: const Duration(days: 1),
+            decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(10)
+            ),
+          ),
           InkWell(
             onTap: () {
               Get.toNamed(Routes.LIHATSEMUASPESIALIS);
@@ -562,9 +562,9 @@ class _HomePageState extends State<HomePage> {
                   mainAxisSpacing: 0.9,
                   childAspectRatio: 0.57,
                 ),
-                itemCount: dataProduct.length,
+                itemCount: dataProduct2.length,
                 itemBuilder: (context, index) {
-                  final product = dataProduct[index];
+                  final product = dataProduct2[index];
                   return InkWell(
                     onTap: () {
                       Get.toNamed(Routes.DETAILSPECIAL,

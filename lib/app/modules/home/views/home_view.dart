@@ -77,7 +77,7 @@ class _HomeViewState extends State<HomeView> {
           onPressed: () {
             Get.toNamed(Routes.BOOKING);
           },
-          backgroundColor: Colors.white,
+          backgroundColor: MyColors.appPrimarykuning,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(706.0)),
           ),
