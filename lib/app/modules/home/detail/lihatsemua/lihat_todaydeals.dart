@@ -11,14 +11,14 @@ import 'package:slide_countdown/slide_countdown.dart';
 
 import '../../../../componen/color.dart';
 import '../../../../data/dummy_data.dart';
-class LihatSemuaSpesialis extends StatefulWidget {
-  const LihatSemuaSpesialis({super.key});
+class LihatSemuaToday extends StatefulWidget {
+  const LihatSemuaToday({super.key});
 
   @override
-  State<LihatSemuaSpesialis> createState() => _LihatSemuaSpesialisState();
+  State<LihatSemuaToday> createState() => _LihatSemuaTodayState();
 }
 
-class _LihatSemuaSpesialisState extends State<LihatSemuaSpesialis> {
+class _LihatSemuaTodayState extends State<LihatSemuaToday> {
   int _currentIndex = 0;
   String _currentAddress = 'Mengambil lokasi...';
   Position? _currentPosition;
@@ -87,9 +87,9 @@ class _LihatSemuaSpesialisState extends State<LihatSemuaSpesialis> {
                     mainAxisSpacing: 0.9,
                     childAspectRatio: 0.57,
                   ),
-                  itemCount: dataProduct.length,
+                  itemCount: dataProduct2.length,
                   itemBuilder: (context, index) {
-                    final product = dataProduct[index];
+                    final product = dataProduct2[index];
                     return InkWell(
                       onTap: () {
                         Get.toNamed(Routes.DETAILSPECIAL,

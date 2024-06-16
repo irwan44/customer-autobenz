@@ -393,10 +393,16 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(title, style: GoogleFonts.nunito(fontWeight: FontWeight.bold, fontSize: 17, color: MyColors.appPrimaryColor)),
-
+          SlideCountdownSeparated(
+            duration: const Duration(days: 1),
+            decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(10)
+            ),
+          ),
           InkWell(
             onTap: () {
-              Get.toNamed(Routes.LIHATSEMUASPESIALIS);
+              Get.toNamed(Routes.LihatSemuaToday);
             },
             child: Container(
               padding: const EdgeInsets.all(10.0),

@@ -28,6 +28,7 @@ import '../modules/home/detail/detailbengkelly/lokasibengkelly.dart';
 import '../modules/home/detail/detailspesialis/spesialisofer.dart';
 import '../modules/home/detail/lihatsemua/lihat_lokasi_bengkelly.dart';
 import '../modules/home/detail/lihatsemua/lihat_spesialis.dart';
+import '../modules/home/detail/lihatsemua/lihat_todaydeals.dart';
 import '../modules/home/menu/lokasi_bengkelly.dart';
 import '../modules/home/menu/lokasi_listrik.dart';
 import '../modules/home/views/home_view.dart';
@@ -238,6 +239,12 @@ class AppPages {
       transition: Transition.downToUp,
       name: _Paths.UBAHPASSWORD,
       page: () => UbahPasswordPage(),
+      binding: BookingBinding(),
+    ),
+    GetPage(
+      transition: Transition.downToUp,
+      name: _Paths.LihatSemuaToday,
+      page: () => LihatSemuaToday(),
       binding: BookingBinding(),
     ),
   ];
