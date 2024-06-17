@@ -51,7 +51,7 @@ class _LihatSemuaTodayState extends State<LihatSemuaToday> {
           statusBarBrightness: Brightness.light,
           systemNavigationBarColor: Colors.white,
         ),
-        title: Text('Spesialis Offer',style: GoogleFonts.nunito(color: MyColors.appPrimaryColor, fontWeight: FontWeight.bold),),
+        title: Text('Today Deals',style: GoogleFonts.nunito(color: MyColors.appPrimaryColor, fontWeight: FontWeight.bold),),
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -85,7 +85,7 @@ class _LihatSemuaTodayState extends State<LihatSemuaToday> {
                     crossAxisCount: constraints.maxWidth < 600 ? 2 : 4,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 0.9,
-                    childAspectRatio: 0.57,
+                    childAspectRatio: 0.65,
                   ),
                   itemCount: dataProduct2.length,
                   itemBuilder: (context, index) {
@@ -131,29 +131,6 @@ class _LihatSemuaTodayState extends State<LihatSemuaToday> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                               Text(product['name'], style: GoogleFonts.nunito(fontWeight: FontWeight.bold)),
-                              Text(product['Harga'], style: GoogleFonts.nunito(color: Colors.green)),
-                              Row(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(3),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
-                                        color: Colors.green
-                                    ),
-                                    child: Text('${product['diskon']}', style: GoogleFonts.nunito(color: Colors.white)),
-                                  ),
-                                  SizedBox(width: 10),
-                                  Text('Rp ${product['harga_asli']}', style: GoogleFonts.nunito(decoration: TextDecoration.lineThrough)),
-                                ],
-                              ),
-                              SizedBox(height: 10),
-                              Row(
-                                children: [
-                                  Icon(Icons.star, color: Colors.yellow),
-                                  SizedBox(width: 5),
-                                  Text('4.9 ${product['terjual']} Terjual', style: GoogleFonts.nunito(color: Colors.grey)),
-                                ],
-                              ),
                               Row(
                                 children: [
                                   Icon(Icons.shield_moon_rounded, color: Colors.green),

@@ -34,8 +34,7 @@ class API {
   static const _katagorikendaraan = 'https://api-vale.techthinkhub.com/api/kategori-kendaraan';
   //API ------------------------------------------------------------------------------------
   static const _url = 'https://mobile.techthinkhub.id';
-  static const _urlbe = 'https://be.techthinkhub.id';
-  static const _baseUrl = '$_urlbe/api';
+  static const _baseUrl = '$_url/api';
   static const _PostLogin = '$_baseUrl/customer/login';
   static const _Getprofile = '$_baseUrl/customer-get-profile';
   static const _PostRegister = '$_baseUrl/register-kendaraan';

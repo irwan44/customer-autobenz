@@ -1,5 +1,5 @@
 name: customer_bengkelly
-version: 2.2.8+1
+version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
 environment:
@@ -16,14 +16,15 @@ dependencies:
   launch_review: ^3.0.1
   smartrefresh: ^0.0.2
   http: ^1.2.1
+  video_player: ^2.2.19
   fine_stepper: ^0.3.0
   webview_flutter: ^3.0.0
-  dropdown_button2: ^2.1.2
+
   package_info: ^2.0.2
   in_app_update: ^4.2.1
   device_info_plus: ^8.0.0
   app_settings: ^5.1.1
-
+  youtube_player_flutter: ^9.0.1
   #  flutter_advanced_calendar: ^1.3.0
   # qr_code_scanner: ^1.0.1
   mobile_scanner: ^3.2.0
@@ -45,6 +46,7 @@ dependencies:
   flutter_onboarding_screen: 2.0.2
   flutter_onboarding_slider: 1.0.9
   flutter_staggered_grid_view: 0.6.2
+  dropdown_button2: ^2.1.2
   curved_labeled_navigation_bar: ^2.0.2
   get: 4.6.5
   # splashscreen: ^1.3.5
@@ -89,6 +91,7 @@ dependencies:
   pinput: ^4.0.0
 
 
+
 dev_dependencies:
   flutter_lints: 3.0.2
   flutter_test:
@@ -105,6 +108,7 @@ flutter:
     - assets/319b/
     - assets/379a/
     - assets/389b/
+    - assets/video/sample_video.mp4
     - assets/bu_monggo/
     - assets/chicken_ricequ/
     - assets/dapur_nafara/

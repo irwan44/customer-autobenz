@@ -22,9 +22,7 @@ class _DetailSpecialOfferState extends State<DetailSpecialOffer> {
   late final String description;
   late final String nama;
   late final String image;
-  late final String Harga;
-  late final String diskon;
-  late final String hargaasli;
+
 
   @override
   void initState() {
@@ -33,9 +31,6 @@ class _DetailSpecialOfferState extends State<DetailSpecialOffer> {
     description = arguments['description'];
     nama = arguments['name'];
     image = arguments['image'];
-    Harga = arguments['Harga'];
-    diskon = arguments['diskon'];
-    hargaasli = arguments['harga_asli'];
   }
   @override
   Widget build(BuildContext context) {
@@ -128,9 +123,6 @@ class _DetailSpecialOfferState extends State<DetailSpecialOffer> {
                   ArgumentsLokasi(
                     description: description,
                     nama: nama,
-                    Harga: Harga,
-                    diskon: diskon,
-                    hargaasli: hargaasli,
                   ),
                   // _SliderOffer(context),
                 ],
@@ -169,9 +161,6 @@ class _DetailSpecialOfferState extends State<DetailSpecialOffer> {
                               'description': product['description'],
                               'name': product['name'],
                               'image': product['image'],
-                              'Harga': product['Harga'],
-                              'harga_asli': product['harga_asli'],
-                              'diskon': product['diskon'],
                             }
                         );
                       },
@@ -197,20 +186,7 @@ class _DetailSpecialOfferState extends State<DetailSpecialOffer> {
                             Image.asset(product['image'], fit: BoxFit.cover, height: 120),
                             SizedBox(height: 20),
                             Text(product['name'], style: GoogleFonts.nunito(fontWeight: FontWeight.bold)),
-                            Text(product['Harga'], style: GoogleFonts.nunito(color: Colors.green)),
-                            Row(
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.all(3),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(5),
-                                      color: MyColors.green
-                                  ),
-                                  child: Text('${product['diskon']}',style: GoogleFonts.nunito(color: Colors.white),),
-                                ),
-                                SizedBox(width: 10,),
-                                Text('Rp ${product['harga_asli']}',style: GoogleFonts.nunito(decoration: TextDecoration.lineThrough,),),
-                              ],),
+
                             SizedBox(height: 10),
                             Row(children: [
                               Icon(Icons.star, color: Colors.yellow,),
@@ -241,11 +217,8 @@ class _DetailSpecialOfferState extends State<DetailSpecialOffer> {
 class ArgumentsLokasi extends StatefulWidget {
   final String description;
   final String nama;
-  final String Harga;
-  final String diskon;
-  final String hargaasli;
 
-  const ArgumentsLokasi({Key? key, required this.description, required this.nama, required this.Harga, required this.diskon, required this.hargaasli}) : super(key: key);
+  const ArgumentsLokasi({Key? key, required this.description, required this.nama,}) : super(key: key);
 
   @override
   State<ArgumentsLokasi> createState() => _ArgumentsLokasiState();
@@ -267,21 +240,6 @@ class _ArgumentsLokasiState extends State<ArgumentsLokasi> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(widget.nama, style: GoogleFonts.nunito(fontWeight: FontWeight.bold, fontSize: 17),),
-                SizedBox(height: 10,),
-                Text(widget.Harga, style: GoogleFonts.nunito(color: Colors.green)),
-                Row(
-                  children: [
-                    Text('Rp ${widget.Harga}',style: GoogleFonts.nunito(decoration: TextDecoration.lineThrough,),),
-                    SizedBox(width: 10,),
-                    Container(
-                      padding: EdgeInsets.all(3),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          color: MyColors.green
-                      ),
-                      child: Text(widget.diskon,style: GoogleFonts.nunito(color: Colors.white),),
-                    ),
-                  ],),
                 SizedBox(height: 10,),
                 Text('Deskripsi', style: GoogleFonts.nunito(fontWeight: FontWeight.bold, fontSize: 17 ),),
                 SizedBox(height: 10,),

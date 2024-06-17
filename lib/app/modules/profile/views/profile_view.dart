@@ -52,19 +52,13 @@ class _ProfileViewState extends State<ProfileView> {
             children: [
               InkWell(
                 onTap: () {
-                  Get.toNamed(Routes.CHAT);
-                },
-                child:
-                SvgPicture.asset('assets/icons/massage.svg', width: 26,),),
-              SizedBox(width: 20,),
-              InkWell(
-                onTap: () {
                   Get.toNamed(Routes.NOTIFIKASI);
                 },
-                child:
-                SvgPicture.asset('assets/icons/notif.svg', width: 26,),),
-              SizedBox(width: 10,),
-            ],),
+                child: SvgPicture.asset('assets/icons/notif.svg', width: 26),
+              ),
+              SizedBox(width: 10),
+            ],
+          ),
         ],
       ),
       body: SmartRefresher(
@@ -268,76 +262,6 @@ class _ProfileViewState extends State<ProfileView> {
                       Text('Pilih Kendaraaan', style: GoogleFonts.nunito(fontWeight: FontWeight.bold),),
                     ],),
 
-                  Icon(Icons.arrow_forward_ios_rounded, color: Colors.grey.shade400,),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: Divider(color: Colors.grey.shade300,),
-            ),
-            InkWell(
-              onTap: () => LaunchReview.launch(
-                androidAppId: "com.bengkelly.customer.co.id",
-                // iOSAppId: "585027354",
-              ),
-              child:
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                     Icon(Icons.system_update_rounded, color: MyColors.appPrimaryColor,),
-                      SizedBox(width: 10,),
-                      Text('Cek Update Manual', style: GoogleFonts.nunito(fontWeight: FontWeight.bold),),
-                    ],),
-                  Icon(Icons.arrow_forward_ios_rounded, color: Colors.grey.shade400,),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: Divider(color: Colors.grey.shade300,),
-            ),
-            InkWell(
-              onTap: () {
-                Get.toNamed(Routes.CHAT);
-              },
-              child:
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      SvgPicture.asset('assets/icons/tandaseru.svg', width: 26,),
-                      SizedBox(width: 10,),
-                      Text('Pusat Bantuan', style: GoogleFonts.nunito(fontWeight: FontWeight.bold),),
-                    ],),
-                  Icon(Icons.arrow_forward_ios_rounded, color: Colors.grey.shade400,),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10),
-              child: Divider(color: Colors.grey.shade300,),
-            ),
-            InkWell(
-              onTap: () {
-                Get.toNamed(Routes.BANTUAN);
-              },
-              child:
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.published_with_changes_rounded, color: MyColors.appPrimaryColor,),
-                      SizedBox(width: 10,),
-                      Text('Privacy Policy', style: GoogleFonts.nunito(fontWeight: FontWeight.bold),),
-                    ],),
                   Icon(Icons.arrow_forward_ios_rounded, color: Colors.grey.shade400,),
                 ],
               ),

@@ -30,7 +30,7 @@ class AuthorizationView extends GetView<AuthorizationController> {
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/background.png"),
+            image: AssetImage("assets/images/bg.png"),
             fit: BoxFit.cover,
           ),
         ),
@@ -47,11 +47,11 @@ class AuthorizationView extends GetView<AuthorizationController> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Colors.white
+                    Colors.black
                         .withOpacity(0.0),
-                    Colors.white
+                    Colors.black
                         .withOpacity(0.9),
-                    Colors.white,
+                    Colors.black,
                   ],
                 ),
               ),
@@ -61,11 +61,11 @@ class AuthorizationView extends GetView<AuthorizationController> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Image.asset(
-                    'assets/logo/logo_bengkelly.png',
+                    'assets/logo/logo_autobenz2.png',
                     width: 200.0,
                     fit: BoxFit.cover,
                   ),
-                SizedBox(height: 50,),
+                SizedBox(height: 10,),
                 Container(
                   margin: EdgeInsets.only(left: 40, right: 40),
                   child: FadeInAnimation(

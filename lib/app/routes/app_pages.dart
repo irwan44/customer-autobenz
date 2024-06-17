@@ -31,9 +31,11 @@ import '../modules/home/detail/lihatsemua/lihat_spesialis.dart';
 import '../modules/home/detail/lihatsemua/lihat_todaydeals.dart';
 import '../modules/home/menu/lokasi_bengkelly.dart';
 import '../modules/home/menu/lokasi_listrik.dart';
+import '../modules/home/menu/tentangkami.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/news/bindings/news_binding.dart';
 import '../modules/news/views/news_view.dart';
+import '../modules/news/views/youtube_view.dart';
 import '../modules/notifikasi/bindings/notifikasi_binding.dart';
 import '../modules/notifikasi/views/notifikasi_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
@@ -197,7 +199,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.SPLASHSCREEN,
-      page: () => MyCustomSplashScreen(),
+      page: () => SplashScreen(),
       binding: BookingBinding(),
     ),
     GetPage(
@@ -245,6 +247,18 @@ class AppPages {
       transition: Transition.downToUp,
       name: _Paths.LihatSemuaToday,
       page: () => LihatSemuaToday(),
+      binding: BookingBinding(),
+    ),
+    GetPage(
+      transition: Transition.downToUp,
+      name: _Paths.YouTubeVideoList,
+      page: () => YouTubeVideoList(),
+      binding: BookingBinding(),
+    ),
+    GetPage(
+      transition: Transition.downToUp,
+      name: _Paths.ProfilPerusahaanPage,
+      page: () => ProfilePerusahaanPage(),
       binding: BookingBinding(),
     ),
   ];

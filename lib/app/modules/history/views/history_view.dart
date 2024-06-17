@@ -62,22 +62,9 @@ class _HistoryViewState extends State<HistoryView> {
             children: [
               InkWell(
                 onTap: () {
-                  Get.toNamed(Routes.CHAT);
-                },
-                child: SvgPicture.asset(
-                  'assets/icons/massage.svg',
-                  width: 26,
-                ),
-              ),
-              SizedBox(width: 20),
-              InkWell(
-                onTap: () {
                   Get.toNamed(Routes.NOTIFIKASI);
                 },
-                child: SvgPicture.asset(
-                  'assets/icons/notif.svg',
-                  width: 26,
-                ),
+                child: SvgPicture.asset('assets/icons/notif.svg', width: 26),
               ),
               SizedBox(width: 10),
             ],

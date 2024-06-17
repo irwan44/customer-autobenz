@@ -72,11 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      'assets/logo/logo_bengkelly.png',
-                      width: 200,
-                      fit: BoxFit.contain,
-                    ),
+                    Text('Selamat Datang',style: GoogleFonts.nunito(fontWeight: FontWeight.bold,fontSize: 20),),
                     Padding(
                       padding: const EdgeInsets.all(12.0),
                       child: Column(

@@ -23,11 +23,12 @@ class _LihatSemuaSpesialisState extends State<LihatSemuaSpesialis> {
   String _currentAddress = 'Mengambil lokasi...';
   Position? _currentPosition;
   final List<String> imgList = [
-    'assets/images/gambar1.jpg',
-    'assets/images/gambar2.jpg',
-    'assets/images/gambar3.jpg',
-    'assets/images/gambar4.jpg',
-    'assets/images/gambar5.jpg',
+    'assets/produk/oli1.jpg',
+    'assets/produk/oli2.jpg',
+    'assets/produk/oli3.png',
+    'assets/produk/oli4.png',
+    'assets/produk/oli5.png',
+    'assets/produk/oli6.png',
   ];
   late RefreshController _refreshController;
 
@@ -131,21 +132,6 @@ class _LihatSemuaSpesialisState extends State<LihatSemuaSpesialis> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                               Text(product['name'], style: GoogleFonts.nunito(fontWeight: FontWeight.bold)),
-                              Text(product['Harga'], style: GoogleFonts.nunito(color: Colors.green)),
-                              Row(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(3),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
-                                        color: Colors.green
-                                    ),
-                                    child: Text('${product['diskon']}', style: GoogleFonts.nunito(color: Colors.white)),
-                                  ),
-                                  SizedBox(width: 10),
-                                  Text('Rp ${product['harga_asli']}', style: GoogleFonts.nunito(decoration: TextDecoration.lineThrough)),
-                                ],
-                              ),
                               SizedBox(height: 10),
                               Row(
                                 children: [
@@ -158,7 +144,7 @@ class _LihatSemuaSpesialisState extends State<LihatSemuaSpesialis> {
                                 children: [
                                   Icon(Icons.shield_moon_rounded, color: Colors.green),
                                   SizedBox(width: 5),
-                                  Text('Dilayani Bengkelly', style: GoogleFonts.nunito(color: Colors.grey)),
+                                  Text('Dilayani AutoBenz', style: GoogleFonts.nunito(color: Colors.grey)),
                                 ],
                               ),
                               ],),),
@@ -209,7 +195,7 @@ class _LihatSemuaSpesialisState extends State<LihatSemuaSpesialis> {
         ),
         const SizedBox(height: 10),
         Container(
-          width: 130,
+          width: 145,
           decoration: BoxDecoration(
             color: MyColors.slider,
             borderRadius: BorderRadius.circular(10),

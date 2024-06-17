@@ -41,6 +41,8 @@ abstract class Routes {
   static const LOKASILISTRIK = _Paths.LOKASILISTRIK;
   static const UBAHPASSWORD = _Paths.UBAHPASSWORD;
   static const LihatSemuaToday = _Paths.LihatSemuaToday;
+  static const YouTubeVideoList = _Paths.YouTubeVideoList;
+  static const ProfilPerusahaanPage = _Paths.ProfilPerusahaanPage;
 }
 
 abstract class _Paths {
@@ -83,4 +85,6 @@ abstract class _Paths {
   static const LOKASILISTRIK = '/lokasilistrik';
   static const UBAHPASSWORD = '/ubahpassword';
   static const LihatSemuaToday = '/LihatSemuaToday';
+  static const YouTubeVideoList = '/YouTubeVideoList';
+  static const ProfilPerusahaanPage = '/ProfilPerusahaanPage';
 }

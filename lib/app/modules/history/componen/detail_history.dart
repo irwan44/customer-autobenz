@@ -36,7 +36,7 @@ class _DetailHistoryState extends State<DetailHistory> {
     };
     Color statusColor = StatusColor.getColor(status ?? '');
     String imageAsset = cabangImageAssets[arguments['nama_cabang']] ??
-        'assets/logo/bengkelly.png';
+        'assets/icons/logo_nenz.png';
 
     double screenWidth = MediaQuery
         .of(context)

@@ -30,8 +30,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final HomeController controller = Get.put(HomeController());
-  int _currentIndex = 0;
   String _currentAddress = 'Mengambil lokasi...';
+  int _currentIndex = 0;
   Position? _currentPosition;
   final List<String> imgList = [
     'assets/images/gambar1.jpg',
@@ -169,13 +169,6 @@ class _HomePageState extends State<HomePage> {
               children: [
                 InkWell(
                   onTap: () {
-                    Get.toNamed(Routes.CHAT);
-                  },
-                  child: SvgPicture.asset('assets/icons/massage.svg', width: 26),
-                ),
-                SizedBox(width: 20),
-                InkWell(
-                  onTap: () {
                     Get.toNamed(Routes.NOTIFIKASI);
                   },
                   child: SvgPicture.asset('assets/icons/notif.svg', width: 26),
@@ -217,10 +210,10 @@ class _HomePageState extends State<HomePage> {
                 _sectionTitle3('Today Deals'),
                 SizedBox(height: 20),
                 _todaydeals(context),
-                _sectionTitle4('News'),
-                SizedBox(height: 20),
-                TodayDeals(),
-                SizedBox(height: 40),
+                // _sectionTitle4('News'),
+                // SizedBox(height: 20),
+                // TodayDeals(),
+                // SizedBox(height: 40),
                 // _sectionTitle('News'),
                 // SizedBox(height: 20),
                 // News(),
@@ -297,7 +290,7 @@ class _HomePageState extends State<HomePage> {
         _menuItemHelp(() => Get.toNamed(Routes.EMERGENCY), 'assets/icons/help.png', "Emergency\nService"),
         _menuItem(() => Get.toNamed(Routes.BOOKING), 'assets/icons/bookingservice.png', "Booking\nService"),
         _menuItem(() => Get.toNamed(Routes.BOOKING), 'assets/icons/repear.png', "Repair &\nMaintenance"),
-        _menuItem(() => Get.toNamed(Routes.LOKASIBENGKELLY), 'assets/icons/drop.png', "Lokasi\nBengkelly"),
+        _menuItembenz(() => Get.toNamed(Routes.ProfilPerusahaanPage), 'assets/logo/logo_autobenz.png', "Tentang\nRealAutoBenz"),
       ],
     );
   }
@@ -322,6 +315,26 @@ class _HomePageState extends State<HomePage> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Image.asset(iconPath, width: 50),
+          SizedBox(height: 8),
+          Text(label, textAlign: TextAlign.center, style: GoogleFonts.nunito(color: Colors.grey.shade600, fontWeight: FontWeight.bold)),
+        ],
+      ),
+    );
+  }
+  Widget _menuItembenz( VoidCallback onTap, String iconPath, String label,) {
+    return InkWell(
+      onTap: onTap,
+      child:
+      Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+              color: MyColors.bgform,
+              borderRadius: BorderRadius.all(Radius.circular(200))
+            ),
+            child:
+          Image.asset(iconPath, width: 50),),
           SizedBox(height: 8),
           Text(label, textAlign: TextAlign.center, style: GoogleFonts.nunito(color: Colors.grey.shade600, fontWeight: FontWeight.bold)),
         ],
@@ -566,7 +579,7 @@ class _HomePageState extends State<HomePage> {
                   crossAxisCount: constraints.maxWidth < 600 ? 2 : 4,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 0.9,
-                  childAspectRatio: 0.57,
+                  childAspectRatio: 0.60,
                 ),
                 itemCount: dataProduct2.length,
                 itemBuilder: (context, index) {
@@ -612,21 +625,6 @@ class _HomePageState extends State<HomePage> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(product['name'], style: GoogleFonts.nunito(fontWeight: FontWeight.bold)),
-                                  Text(product['Harga'], style: GoogleFonts.nunito(color: Colors.green)),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.all(3),
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(5),
-                                            color: Colors.green
-                                        ),
-                                        child: Text('${product['diskon']}', style: GoogleFonts.nunito(color: Colors.white)),
-                                      ),
-                                      SizedBox(width: 10),
-                                      Text('Rp ${product['harga_asli']}', style: GoogleFonts.nunito(decoration: TextDecoration.lineThrough)),
-                                    ],
-                                  ),
                                   SizedBox(height: 10),
                                   Row(
                                     children: [
@@ -639,7 +637,7 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       Icon(Icons.shield_moon_rounded, color: Colors.green),
                                       SizedBox(width: 5),
-                                      Text('Dilayani Bengkelly', style: GoogleFonts.nunito(color: Colors.grey)),
+                                      Text('Dilayani AutoBenz', style: GoogleFonts.nunito(color: Colors.grey)),
                                     ],
                                   ),
                                 ],),),
@@ -715,30 +713,6 @@ class _HomePageState extends State<HomePage> {
                           product['name'],
                           style: GoogleFonts.nunito(fontWeight: FontWeight.bold),
                         ),
-                        Text(
-                          product['Harga'],
-                          style: GoogleFonts.nunito(color: Colors.green),
-                        ),
-                        Row(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(3),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color: Colors.green,
-                              ),
-                              child: Text(
-                                '${product['diskon']}',
-                                style: GoogleFonts.nunito(color: Colors.white),
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              'Rp ${product['harga_asli']}',
-                              style: GoogleFonts.nunito(decoration: TextDecoration.lineThrough),
-                            ),
-                          ],
-                        ),
                         SizedBox(height: 10),
                         Row(
                           children: [
@@ -755,7 +729,7 @@ class _HomePageState extends State<HomePage> {
                             Icon(Icons.shield_moon_rounded, color: Colors.green),
                             SizedBox(width: 5),
                             Text(
-                              'Dilayani Bengkelly',
+                              'Dilayani AutoBenz',
                               style: GoogleFonts.nunito(color: Colors.grey),
                             ),
                           ],

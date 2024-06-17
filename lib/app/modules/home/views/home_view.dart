@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../history/views/history_view.dart';
 import '../../news/views/news_view.dart';
+import '../../news/views/youtube_view.dart';
 import '../../profile/views/profile_view.dart';
 import 'page_home.dart';
 
@@ -29,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
   }
   final List<Widget> _pages = [
     HomePage(),
-    NewsView(),
+    YouTubeVideoList(),
     HistoryView(),
     ProfileView(),
   ];
@@ -61,7 +62,7 @@ class _HomeViewState extends State<HomeView> {
           children: <Widget>[
             _buildIconButton('assets/icons/octicon_home-16.svg', 'Home', 0),
             SizedBox(width: 10), // S
-            _buildIconButton('assets/icons/mingcute_news-line.svg', 'News', 1),
+            _buildIconButton('assets/icons/youtube.svg', 'Channel', 1),
             SizedBox(width: 90), // Space for FAB
             _buildIconButton('assets/icons/icon-park-outline_history-query.svg', 'History', 2),
             SizedBox(width: 10), // S
