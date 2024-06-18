@@ -33,7 +33,7 @@ class API {
   static const _fleetMaintenanceUrl = 'https://fleetmaintenance.co.id/wp-json/wp/v2/posts';
   static const _katagorikendaraan = 'https://api-vale.techthinkhub.com/api/kategori-kendaraan';
   //API ------------------------------------------------------------------------------------
-  static const _url = 'https://mobile.techthinkhub.id';
+  static const _url = 'https://api.realautobenz.com';
   static const _baseUrl = '$_url/api';
   static const _PostLogin = '$_baseUrl/customer/login';
   static const _Getprofile = '$_baseUrl/customer-get-profile';

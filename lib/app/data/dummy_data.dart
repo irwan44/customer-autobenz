@@ -451,43 +451,12 @@ List<Map<String, dynamic>> dataProduct = [
   {
     "id": "3",
     "name": "Oli Mobil1 Triple Action Power 0W-50",
-    'image': "assets/produk/oli2.jpg",
+    'image': "assets/produk/oli2.png",
     'description': 'MOBIL 1 TRIPLE ACTION POWER PLUS 0W40 SP 1LT',
     'diskon': '5%',
     'terjual': '78rb+',
   },
-  {
-    "id": "4",
-    "name": "Oli Mesin Mobil 1 0W-40 4Liter",
-    'image': "assets/produk/oli3.png",
-    'description': 'Mobil 1 Gold SAE 0W/40 XQ2100200 100% Original SAE OW/40 Engine Oil Per botol isi 4liter',
-    'diskon': '5%',
-    'terjual': '230',
-  },
-  {
-    "id": "5",
-    "name": "Paket 1 Oli Mesin Mobil 1",
-    'image': "assets/produk/oli4.png",
-    'description': 'Papket 1 Oli Mesin Mobil 1',
-    'diskon': '5%',
-    'terjual': '230',
-  },
-  {
-    "id": "6",
-    "name": "Paket 2 Oli Mesin Mobil 1",
-    'image': "assets/produk/oli5.png",
-    'description': 'Papket 2 Oli Mesin Mobil 1',
-    'diskon': '5%',
-    'terjual': '230',
-  },
-  {
-    "id": "7",
-    "name": "Oli Mobil 1 Super 2000 5W-30",
-    'image': "assets/produk/oli6.jpg",
-    'description': 'Oli Mobil 1 Super 2000 5W-30',
-    'diskon': '5%',
-    'terjual': '230',
-  },
+
 ];
 List<Map<String, dynamic>> dataProduct2 = [
   {

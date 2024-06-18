@@ -148,7 +148,7 @@ class ProfileController extends GetxController {
   }
 
   Future<void> updateProfile(String name, String email, String hp, String alamat) async {
-    String url = 'https://mobile.techthinkhub.id/api/customer-update-profile';
+    String url = 'https://api.realautobenz.com/api/customer-update-profile';
     final token = Publics.controller.getToken.value ?? '';
 
     dio.FormData formData = dio.FormData.fromMap({

@@ -76,6 +76,62 @@ class _HomeViewState extends State<HomeView> {
         child:
         FloatingActionButton(
           onPressed: () {
+            // showModalBottomSheet(
+            //   showDragHandle: true,
+            //   context: context,
+            //   shape: RoundedRectangleBorder(
+            //     borderRadius: BorderRadius.vertical(
+            //       top: Radius.circular(25.0),
+            //     ),
+            //   ),
+            //   builder: (context) {
+            //     return Container(
+            //       width: double.infinity,
+            //       child: Column(
+            //         mainAxisAlignment: MainAxisAlignment.start,
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: <Widget>[
+            //           Container(
+            //               width: double.infinity,
+            //               margin: EdgeInsets.symmetric(horizontal: 20),
+            //               padding: EdgeInsets.all(10),
+            //               decoration: BoxDecoration(
+            //                 color: Colors.redAccent,
+            //                 borderRadius: BorderRadius.circular(20),
+            //               ),
+            //               child: Row(children: [
+            //                 SizedBox(
+            //                   height: 70,
+            //                   child:
+            //                   SvgPicture.asset('assets/icons/booking.svg'),),
+            //                 SizedBox(width: 10,),
+            //                 Text('Emergency Service', style: GoogleFonts.nunito(color : Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
+            //               ],)
+            //           ),
+            //           SizedBox(height: 10,),
+            //           Container(
+            //               width: double.infinity,
+            //               padding: EdgeInsets.all(10),
+            //               margin: EdgeInsets.symmetric(horizontal: 20),
+            //               decoration: BoxDecoration(
+            //                 color: Colors.blueAccent,
+            //                 borderRadius: BorderRadius.circular(20),
+            //               ),
+            //               child: Row(children: [
+            //                 SizedBox(
+            //                   height: 70,
+            //                   child:
+            //                   SvgPicture.asset('assets/logo/bookingservice.svg'),),
+            //                 SizedBox(width: 10,),
+            //                 Text('Emergency Service', style: GoogleFonts.nunito(color : Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
+            //               ],)
+            //           ),
+            //           SizedBox(height: 40,)
+            //         ],
+            //       ),
+            //     );
+            //   },
+            // );
             Get.toNamed(Routes.BOOKING);
           },
           backgroundColor: MyColors.appPrimarykuning,
@@ -85,7 +141,7 @@ class _HomeViewState extends State<HomeView> {
           child:SizedBox(
             height: 130,
             child:
-          SvgPicture.asset('assets/icons/booking.svg'),),
+            SvgPicture.asset('assets/icons/booking.svg'),),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

@@ -34,11 +34,14 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   Position? _currentPosition;
   final List<String> imgList = [
-    'assets/images/gambar1.jpg',
-    'assets/images/gambar2.jpg',
-    'assets/images/gambar3.jpg',
-    'assets/images/gambar4.jpg',
-    'assets/images/gambar5.jpg',
+    'assets/images/sliderrealbenz1.jpeg',
+    'assets/images/sliderrealbenz2.jpeg',
+    'assets/images/sliderrealbenz3.jpeg',
+    'assets/images/sliderrealbenz4.jpeg',
+    'assets/images/sliderrealbenz5.jpeg',
+    'assets/images/sliderrealbenz6.jpeg',
+    'assets/images/sliderrealbenz7.jpeg',
+    'assets/images/sliderrealbenz8.jpeg',
   ];
   late RefreshController _refreshController;
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -121,7 +124,40 @@ class _HomePageState extends State<HomePage> {
       print('Error getting address: $e');
     }
   }
-
+  void _CommingSoon(BuildContext context) {
+    showModalBottomSheet(
+      showDragHandle: true,
+      isScrollControlled: true,
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(25.0),
+        ),
+      ),
+      builder: (context) {
+        return Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: MyColors.appPrimaryDarkmod
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              SizedBox(height: 40,),
+                Text('Comming Soon', style: GoogleFonts.nunito(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
+              Image.asset(
+                'assets/logo/logo_autobenz2.png',
+                width: 100.0,
+                fit: BoxFit.cover,
+              ),
+              SizedBox(height: 40,)
+              ],
+          ),
+        );
+      },
+    );
+  }
+  final limitedProducts = dataProduct.take(2).toList();
   @override
   Widget build(BuildContext context) {
     controller.checkForUpdate();
@@ -169,6 +205,13 @@ class _HomePageState extends State<HomePage> {
               children: [
                 InkWell(
                   onTap: () {
+                    Get.toNamed(Routes.CHAT);
+                  },
+                  child:
+                  SvgPicture.asset('assets/icons/massage.svg', width: 26,),),
+                SizedBox(width: 20,),
+                InkWell(
+                  onTap: () {
                     Get.toNamed(Routes.NOTIFIKASI);
                   },
                   child: SvgPicture.asset('assets/icons/notif.svg', width: 26),
@@ -203,7 +246,7 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: 20),
                 _menuItemsRow(),
                 SizedBox(height: 20),
-                _sectionTitle1('Spesialis Offer'),
+                _sectionTitle1('Special Offer'),
                 SizedBox(height: 20),
                 _SliderOffer(context),
                 SizedBox(height: 20),
@@ -257,7 +300,7 @@ class _HomePageState extends State<HomePage> {
         ),
         const SizedBox(height: 10),
         Container(
-          width: 130,
+          width: 200,
           decoration: BoxDecoration(
             color: MyColors.slider,
             borderRadius: BorderRadius.circular(10),
@@ -290,7 +333,7 @@ class _HomePageState extends State<HomePage> {
         _menuItemHelp(() => Get.toNamed(Routes.EMERGENCY), 'assets/icons/help.png', "Emergency\nService"),
         _menuItem(() => Get.toNamed(Routes.BOOKING), 'assets/icons/bookingservice.png', "Booking\nService"),
         _menuItem(() => Get.toNamed(Routes.BOOKING), 'assets/icons/repear.png', "Repair &\nMaintenance"),
-        _menuItembenz(() => Get.toNamed(Routes.ProfilPerusahaanPage), 'assets/logo/logo_autobenz.png', "Tentang\nRealAutoBenz"),
+        _menuItembenz(() => _CommingSoon(context), 'assets/logo/logo_comunity.png', "Comunity\n"),
       ],
     );
   }
@@ -483,7 +526,13 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
+  // Widget _item(String title) {
+  //   return const Row(
+  //     children: [
+  //       Con
+  //     ],
+  //   );
+  // }
   Widget _SliderLokasi(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -655,95 +704,79 @@ class _HomePageState extends State<HomePage> {
       },
     );
   }
+
   Widget _SliderOffer(BuildContext context) {
-    return Column(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        CarouselSlider(
-          options: CarouselOptions(
-            autoPlay: true,
-            autoPlayInterval: Duration(seconds: 5),
-            autoPlayAnimationDuration: Duration(milliseconds: 800),
-            autoPlayCurve: Curves.fastOutSlowIn,
-            pauseAutoPlayOnTouch: true,
-            aspectRatio: 1.2,
-            viewportFraction: 0.55,
-            enlargeCenterPage: false,
-          ),
-          items: dataProduct.map((product) {
-            return Builder(
-              builder: (BuildContext context) {
-                return InkWell(
-                  onTap: () {
-                    Get.toNamed(Routes.DETAILSPECIAL, arguments: {
-                      'description': product['description'],
-                      'name': product['name'],
-                      'image': product['image'],
-                      'Harga': product['Harga'],
-                      'harga_asli': product['harga_asli'],
-                      'diskon': product['diskon'],
-                    });
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.symmetric(horizontal: 5, vertical: 20),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.1),
-                          spreadRadius: 5,
-                          blurRadius: 10,
-                          offset: Offset(0, 3),
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset(
-                          product['image'],
-                          fit: BoxFit.cover,
-                          height: 120,
-                          width: double.infinity,
-                        ),
-                        SizedBox(height: 20),
-                        Text(
-                          product['name'],
-                          style: GoogleFonts.nunito(fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Icon(Icons.star, color: Colors.yellow),
-                            SizedBox(width: 5),
-                            Text(
-                              '4.9 ${product['terjual']} Terjual',
-                              style: GoogleFonts.nunito(color: Colors.grey),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.shield_moon_rounded, color: Colors.green),
-                            SizedBox(width: 5),
-                            Text(
-                              'Dilayani AutoBenz',
-                              style: GoogleFonts.nunito(color: Colors.grey),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+      children: limitedProducts.map((product) {
+        return Expanded(
+          child: InkWell(
+            onTap: () {
+              Get.toNamed(Routes.DETAILSPECIAL, arguments: {
+                'description': product['description'],
+                'name': product['name'],
+                'image': product['image'],
+                'Harga': product['Harga'],
+                'harga_asli': product['harga_asli'],
+                'diskon': product['diskon'],
+              });
+            },
+            child: Container(
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.symmetric(horizontal: 5, vertical: 20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.1),
+                    spreadRadius: 5,
+                    blurRadius: 10,
+                    offset: Offset(0, 3),
                   ),
-                );
-              },
-            );
-          }).toList(),
-        ),
-        const SizedBox(height: 10),
-      ],
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    product['image'],
+                    fit: BoxFit.cover,
+                    height: 120,
+                    width: double.infinity,
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    product['name'],
+                    style: GoogleFonts.nunito(fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      Icon(Icons.star, color: Colors.yellow),
+                      SizedBox(width: 5),
+                      Text(
+                        '4.9 ${product['terjual']} Terjual',
+                        style: GoogleFonts.nunito(color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.shield_moon_rounded, color: Colors.green),
+                      SizedBox(width: 5),
+                      Text(
+                        'Dilayani RealAuto',
+                        style: GoogleFonts.nunito(color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      }).toList(),
     );
   }
   _onLoading() {

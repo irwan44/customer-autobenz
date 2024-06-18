@@ -20,8 +20,6 @@ class LihatSemuaSpesialis extends StatefulWidget {
 
 class _LihatSemuaSpesialisState extends State<LihatSemuaSpesialis> {
   int _currentIndex = 0;
-  String _currentAddress = 'Mengambil lokasi...';
-  Position? _currentPosition;
   final List<String> imgList = [
     'assets/produk/oli1.jpg',
     'assets/produk/oli2.jpg',
@@ -52,7 +50,7 @@ class _LihatSemuaSpesialisState extends State<LihatSemuaSpesialis> {
           statusBarBrightness: Brightness.light,
           systemNavigationBarColor: Colors.white,
         ),
-        title: Text('Spesialis Offer',style: GoogleFonts.nunito(color: MyColors.appPrimaryColor, fontWeight: FontWeight.bold),),
+        title: Text('Special Offer',style: GoogleFonts.nunito(color: MyColors.appPrimaryColor, fontWeight: FontWeight.bold),),
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -67,7 +65,7 @@ class _LihatSemuaSpesialisState extends State<LihatSemuaSpesialis> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Spesialis Offer', style: GoogleFonts.nunito(fontWeight: FontWeight.bold, fontSize: 17, color: MyColors.appPrimaryColor)),
+                      Text('Special Offer', style: GoogleFonts.nunito(fontWeight: FontWeight.bold, fontSize: 17, color: MyColors.appPrimaryColor)),
                       SlideCountdownSeparated(
                         duration: const Duration(days: 1),
                         decoration: BoxDecoration(
@@ -144,10 +142,16 @@ class _LihatSemuaSpesialisState extends State<LihatSemuaSpesialis> {
                                 children: [
                                   Icon(Icons.shield_moon_rounded, color: Colors.green),
                                   SizedBox(width: 5),
-                                  Text('Dilayani AutoBenz', style: GoogleFonts.nunito(color: Colors.grey)),
-                                ],
+                                  Text(
+                                    'Dilayani RealAuto',
+                                    style: GoogleFonts.nunito(color: Colors.grey),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
                               ),
-                              ],),),
                             ],
                           ),
                         ),

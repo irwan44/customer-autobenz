@@ -7,6 +7,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 import '../../../componen/color.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/booking_controller.dart';
 
 class SelectBookingEmergency extends StatelessWidget {
@@ -42,8 +43,7 @@ class SelectBookingEmergency extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.close, color: Colors.black),
           onPressed: () {
-            Navigator.of(context)
-                .popUntil((route) => route.isFirst);
+         Get.toNamed(Routes.HOME);
           },
         ),
       ),

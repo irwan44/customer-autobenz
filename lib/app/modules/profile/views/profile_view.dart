@@ -52,6 +52,13 @@ class _ProfileViewState extends State<ProfileView> {
             children: [
               InkWell(
                 onTap: () {
+                  Get.toNamed(Routes.CHAT);
+                },
+                child:
+                SvgPicture.asset('assets/icons/massage.svg', width: 26,),),
+              SizedBox(width: 20,),
+              InkWell(
+                onTap: () {
                   Get.toNamed(Routes.NOTIFIKASI);
                 },
                 child: SvgPicture.asset('assets/icons/notif.svg', width: 26),

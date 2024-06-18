@@ -158,7 +158,7 @@ class BookingViewState extends State<BookingView> {
                         const SizedBox(height: 10,),
                         FadeInAnimation(
                           delay: 1.8,
-                          child: Text('Lokasi Bengkelly', style: GoogleFonts.nunito(),),
+                          child: Text('Lokasi', style: GoogleFonts.nunito(),),
                         ),
                         FadeInAnimation(
                           delay: 1.8,
@@ -189,7 +189,7 @@ class BookingViewState extends State<BookingView> {
                                   children: [
                                     Text(
                                       controller.selectedLocation.value == null
-                                          ? 'Pilih Lokasi Bengkel'
+                                          ? 'Pilih Lokasi'
                                           : '${controller.selectedLocation.value}',
                                       style: GoogleFonts.nunito(
                                         color: controller.selectedLocation.value == null ? Colors.grey : Colors.black,
@@ -224,6 +224,9 @@ class BookingViewState extends State<BookingView> {
                                   builder: (BuildContext context) {
                                     return DraggableScrollableSheet(
                                       expand: false,
+                                      initialChildSize: 0.6, // Ukuran awal sebagai persentase dari layar
+                                      minChildSize: 0.3, // Ukuran minimum sebagai persentase dari layar
+                                      maxChildSize: 1.0,
                                       builder: (BuildContext context, ScrollController scrollController) {
                                         return SingleChildScrollView(
                                           controller: scrollController,
@@ -269,7 +272,7 @@ class BookingViewState extends State<BookingView> {
                         const SizedBox(height: 10,),
                         FadeInAnimation(
                           delay: 1.8,
-                          child: Text('Pilih Jasa', style: GoogleFonts.nunito(),),
+                          child: Text('Pilih Jenis Service', style: GoogleFonts.nunito(),),
                         ),
                         FadeInAnimation(
                           delay: 1.8,
@@ -297,7 +300,7 @@ class BookingViewState extends State<BookingView> {
                                   children: [
                                     Text(
                                       controller.selectedService.value == null || controller.selectedService.value!.namaJenissvc == "Default Service"
-                                          ? 'Pilih Jasa Service'
+                                          ? 'Pilih Jenis Service'
                                           : '${controller.selectedService.value!.namaJenissvc}',
                                       style: GoogleFonts.nunito(
                                         color: controller.selectedService.value == null || controller.selectedService.value!.namaJenissvc == "Default Service" ? Colors.grey : Colors.black,

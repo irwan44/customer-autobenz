@@ -23,11 +23,14 @@ class _LihatSemuaTodayState extends State<LihatSemuaToday> {
   String _currentAddress = 'Mengambil lokasi...';
   Position? _currentPosition;
   final List<String> imgList = [
-    'assets/images/gambar1.jpg',
-    'assets/images/gambar2.jpg',
-    'assets/images/gambar3.jpg',
-    'assets/images/gambar4.jpg',
-    'assets/images/gambar5.jpg',
+    'assets/images/sliderrealbenz1.jpeg',
+    'assets/images/sliderrealbenz2.jpeg',
+    'assets/images/sliderrealbenz3.jpeg',
+    'assets/images/sliderrealbenz4.jpeg',
+    'assets/images/sliderrealbenz5.jpeg',
+    'assets/images/sliderrealbenz6.jpeg',
+    'assets/images/sliderrealbenz7.jpeg',
+    'assets/images/sliderrealbenz8.jpeg',
   ];
   late RefreshController _refreshController;
 
@@ -186,7 +189,7 @@ class _LihatSemuaTodayState extends State<LihatSemuaToday> {
         ),
         const SizedBox(height: 10),
         Container(
-          width: 130,
+          width: 200,
           decoration: BoxDecoration(
             color: MyColors.slider,
             borderRadius: BorderRadius.circular(10),

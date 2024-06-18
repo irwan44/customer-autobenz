@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../componen/ButtonSubmitWidget.dart';
 import '../../../../componen/color.dart';
@@ -23,7 +24,7 @@ class _DetailSpecialOfferState extends State<DetailSpecialOffer> {
   late final String nama;
   late final String image;
 
-
+  final String phoneNumber = '081288835539';
   @override
   void initState() {
     super.initState();
@@ -42,28 +43,36 @@ class _DetailSpecialOfferState extends State<DetailSpecialOffer> {
         bottomNavigationBar: BottomAppBar(
           color: Colors.white,
           child: ElevatedButton(
-              onPressed: () async {
-                Get.toNamed(Routes.BOOKING);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: MyColors.appPrimaryColor,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                elevation: 4.0,
+            onPressed: () async {
+              String url = 'https://api.whatsapp.com/send/?phone=6281288835539&text&type=phone_number&app_absent=0';
+              if (await canLaunch(url)) {
+                await launch(url);
+              } else {
+                throw 'Could not launch $url';
+              }
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: MyColors.appPrimaryColor, // Ganti dengan warna yang sesuai
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(width: 10,),
-                  Text(
-                    'Booking Sekarang',
-                    style: GoogleFonts.nunito(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+              elevation: 4.0,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SvgPicture.asset('assets/icons/whatsapp.svg', width: 20),
+                SizedBox(width: 10),
+                Text(
+                  'WhatsApp',
+                  style: GoogleFonts.nunito(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
-                ],)
+                ),
+              ],
+            ),
           ),
         ),
         body: CustomScrollView(
@@ -80,7 +89,7 @@ class _DetailSpecialOfferState extends State<DetailSpecialOffer> {
               snap: false,
               floating: true,
               automaticallyImplyLeading: false,
-              expandedHeight: 250,
+              expandedHeight: 270,
               leading: Container(
                 margin: const EdgeInsets.fromLTRB(15, 7, 0, 7),
                 decoration: BoxDecoration(
