@@ -115,6 +115,7 @@ class Kendaraan {
   String? createdBy;
   String? updatedAt;
   String? createdAt;
+  String? vinnumber;
   int? id;
   Merks? merks;
   List<Tipes>? tipes;
@@ -132,6 +133,7 @@ class Kendaraan {
         this.createdBy,
         this.updatedAt,
         this.createdAt,
+        this.vinnumber,
         this.id,
         this.merks,
         this.tipes});
@@ -149,6 +151,7 @@ class Kendaraan {
     createdBy = json['created_by'];
     updatedAt = json['updated_at'];
     createdAt = json['created_at'];
+    vinnumber = json['vin_number'];
     id = json['id'];
     merks = json['merks'] != null ? new Merks.fromJson(json['merks']) : null;
     if (json['tipes'] != null) {
@@ -173,6 +176,7 @@ class Kendaraan {
     data['created_by'] = this.createdBy;
     data['updated_at'] = this.updatedAt;
     data['created_at'] = this.createdAt;
+    data['vin_number'] = this.vinnumber;
     data['id'] = this.id;
     if (this.merks != null) {
       data['merks'] = this.merks!.toJson();

@@ -1,5 +1,5 @@
 name: customer_bengkelly
-version: 1.0.3+1
+version: 1.0.4+1
 publish_to: none
 description: A new Flutter project.
 environment:
@@ -110,6 +110,7 @@ flutter:
     - assets/379a/
     - assets/389b/
     - assets/video/sample_video.mp4
+    - assets/video/infinix_video.mp4
     - assets/bu_monggo/
     - assets/chicken_ricequ/
     - assets/dapur_nafara/

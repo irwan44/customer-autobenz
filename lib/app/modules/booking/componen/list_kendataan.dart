@@ -49,7 +49,7 @@ class ListKendaraanWidget extends StatelessWidget {
                       ],
                     ),
                     subtitle: Text(
-                        'No Polisi: ${item.noPolisi}\nWarna: ${item.warna} - Tahun: ${item.tahun}'
+                        'No Polisi: ${item.noPolisi}\nWarna: ${item.warna} - Tahun: ${item.tahun} \n Vin Number: ${item.vinnumber??'-'}'
                     ),
                     trailing: isSelected
                         ? const Icon(Icons.check, color: Colors.green)

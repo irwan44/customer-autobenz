@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:video_player/video_player.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -54,10 +55,17 @@ class _YouTubeVideoListState extends State<YouTubeVideoList> {
     'Open for Booked...Open for Booked... Open for Booked....Open for Booked',
   ];
   bool _isLoading = true;
-
+  late VideoPlayerController _controllers;
   @override
   void initState() {
     super.initState();
+    // _controllers = VideoPlayerController.asset('assets/video/infinix_video.mp4')
+    //   ..initialize().then((_) {
+    //     setState(() {}); // Update the UI when the video is initialized
+    //   });
+    // Future.delayed(Duration(seconds: 0), () {
+    //   _showAdBottomSheet();
+    // });
     _topController = YoutubePlayerController(
       initialVideoId: _videoIds[0],
       flags: const YoutubePlayerFlags(
@@ -73,6 +81,42 @@ class _YouTubeVideoListState extends State<YouTubeVideoList> {
       });
     });
   }
+  void _showAdBottomSheet() {
+    Get.bottomSheet(
+      Container(
+        height: 300,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Expanded(
+              child: AspectRatio(
+                aspectRatio: _controllers.value.aspectRatio,
+                child: VideoPlayer(_controllers),
+              ),
+            ),
+            TextButton(
+                onPressed: () {
+                  _controllers.pause(); // Pause the video when closing the bottom sheet
+                  Get.back();
+                },
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(100)
+                  ),
+                  child:  Icon(Icons.close,color: Colors.white,),
+                )
+            ),
+          ],
+        ),
+      ),
+      isDismissible: true,
+      backgroundColor: Colors.transparent,
+    );
+    _controllers.play(); // Play the video when the bottom sheet is shown
+  }
+
 
   @override
   void dispose() {

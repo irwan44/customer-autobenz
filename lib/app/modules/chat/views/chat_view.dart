@@ -6,8 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:video_player/video_player.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../../../componen/color.dart';
 
@@ -46,6 +49,7 @@ class _HelpCenterPageState extends State<HelpCenterPage> {
       print('Error launching phone call: $e');
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

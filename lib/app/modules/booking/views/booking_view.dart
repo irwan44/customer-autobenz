@@ -105,7 +105,7 @@ class BookingViewState extends State<BookingView> {
                       children: [
                         FadeInAnimation(
                           delay: 1.8,
-                          child: Text('Jenis Kendaraan', style: GoogleFonts.nunito(),),
+                          child: Text('Kendaraan', style: GoogleFonts.nunito(),),
                         ),
                         FadeInAnimation(
                           delay: 1.8,
@@ -141,7 +141,7 @@ class BookingViewState extends State<BookingView> {
                                   children: [
                                     Text(
                                       controller.selectedTransmisi.value == null
-                                          ? 'Jenis Kendaraan'
+                                          ? 'Kendaraan'
                                           : '${controller.selectedTransmisi.value!.merks?.namaMerk} - ${controller.selectedTransmisi.value!.tipes?.map((e) => e.namaTipe).join(", ")}',
                                       style: GoogleFonts.nunito(
                                         color: controller.selectedTransmisi.value == null ? Colors.grey : Colors.black,
@@ -153,6 +153,45 @@ class BookingViewState extends State<BookingView> {
                                 ),
                               )),
                             ),
+                          ),
+                        ),
+                        const SizedBox(height: 10,),
+                        FadeInAnimation(
+                          delay: 1.8,
+                          child: Text('Vin Number', style: GoogleFonts.nunito(),),
+                        ),
+                        FadeInAnimation(
+                          delay: 1.8,
+                          child: Container(
+                            padding: const EdgeInsets.all(3.0),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: MyColors.bgformborder),
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Obx(() => InputDecorator(
+                                decoration: InputDecoration(
+                                  contentPadding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide.none,
+                                  ),
+                                  filled: true,
+                                  fillColor: Colors.transparent,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      controller.selectedTransmisi.value == null
+                                          ? 'Kendaraan'
+                                          : '${controller.selectedTransmisi.value!.vinnumber??'-'}',
+                                      style: GoogleFonts.nunito(
+                                        color: controller.selectedTransmisi.value == null ? Colors.grey : Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )),
                           ),
                         ),
                         const SizedBox(height: 10,),
@@ -414,73 +453,6 @@ class BookingViewState extends State<BookingView> {
                             : null,
                         onTap: () {
                           controller.selectService(item);
-                          Navigator.pop(context);
-                        },
-                      );
-                    },
-                  ),
-                ),
-              ],
-            );
-          }
-        });
-      },
-    );
-  }
-
-  void _showBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-      showDragHandle: true,
-      backgroundColor: Colors.white,
-      context: context,
-      builder: (BuildContext context) {
-        return Obx(() {
-          if (controller.isLoading.value) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (controller.tipeList.isEmpty) {
-            return const Center(child: Text('No data available'));
-          } else {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Text(
-                    'Pilih Kendaraan',
-                    style: GoogleFonts.nunito(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: controller.tipeList.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      DataKendaraan item = controller.tipeList[index];
-                      bool isSelected = item == controller.selectedTransmisi.value;
-                      return ListTile(
-                        title: Row(
-                          children: [
-                            Text(
-                              '${item.merks?.namaMerk}',
-                              style: GoogleFonts.nunito(fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              ' - ',
-                              style: GoogleFonts.nunito(fontWeight: FontWeight.bold),
-                            ),
-                            ...?item.tipes?.map((tipe) => Text(
-                              '${tipe.namaTipe}',
-                              style: GoogleFonts.nunito(fontWeight: FontWeight.bold),
-                            )).toList(),
-                          ],
-                        ),
-                        subtitle: Text(
-                            'No Polisi: ${item.noPolisi}\nWarna: ${item.warna} - Tahun: ${item.tahun}'
-                        ),
-                        trailing: isSelected
-                            ? const Icon(Icons.check, color: Colors.green)
-                            : null,
-                        onTap: () {
-                          controller.selectTransmisi(item);
                           Navigator.pop(context);
                         },
                       );

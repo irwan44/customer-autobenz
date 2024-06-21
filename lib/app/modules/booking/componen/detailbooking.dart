@@ -142,7 +142,8 @@ class DetailBookingViewState extends State<DetailBookingView> {
                                                 Text('${controller.selectedTransmisi.value!.warna}'),
                                                 Text(' - '),
                                                 Text('Tahun ${controller.selectedTransmisi.value!.tahun}'),
-                                              ],)
+                                              ],),
+                                              Text('Vin Number : ${controller.selectedTransmisi.value!.vinnumber?? '-'}'),
                                             ],
                                           ),
                                         ],

@@ -49,6 +49,7 @@ class DataKendaraan {
   String? createdAt;
   String? updatedAt;
   String? picIdPelanggan;
+  String? vinnumber;
   int? idCustomer;
   MerksKendaraan? merks;
   List<TipeKendaraanCustommer>? tipes;
@@ -75,6 +76,7 @@ class DataKendaraan {
         this.createdAt,
         this.updatedAt,
         this.picIdPelanggan,
+        this.vinnumber,
         this.idCustomer,
         this.merks,
         this.tipes});
@@ -101,6 +103,7 @@ class DataKendaraan {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     picIdPelanggan = json['pic_id_pelanggan'];
+    vinnumber = json['vin_number'];
     idCustomer = json['id_customer'];
     merks = json['merks'] != null ? new MerksKendaraan.fromJson(json['merks']) : null;
     if (json['tipes'] != null) {
@@ -134,6 +137,7 @@ class DataKendaraan {
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
     data['pic_id_pelanggan'] = this.picIdPelanggan;
+    data['vin_number'] = this.vinnumber;
     data['id_customer'] = this.idCustomer;
     if (this.merks != null) {
       data['merks'] = this.merks!.toJson();

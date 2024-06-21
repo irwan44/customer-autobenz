@@ -15,6 +15,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:slide_countdown/slide_countdown.dart';
+import 'package:video_player/video_player.dart';
 
 import '../../../data/data_endpoint/news.dart';
 import '../../../data/dummy_data.dart';
@@ -46,6 +47,7 @@ class _HomePageState extends State<HomePage> {
   late RefreshController _refreshController;
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
   FlutterLocalNotificationsPlugin();
+  late VideoPlayerController _controller;
   @override
   void initState() {
     super.initState();
@@ -55,6 +57,13 @@ class _HomePageState extends State<HomePage> {
     _checkPermissionsfile();
     _requestNotificationPermission();
     _initializeNotifications();
+    _controller = VideoPlayerController.asset('assets/video/infinix_video.mp4')
+      ..initialize().then((_) {
+        setState(() {}); // Update the UI when the video is initialized
+      });
+    Future.delayed(Duration(seconds: 0), () {
+      _showAdBottomSheet();
+    });
   }
   Future<void> _requestNotificationPermission() async {
     PermissionStatus status = await Permission.notification.status;
@@ -62,12 +71,44 @@ class _HomePageState extends State<HomePage> {
       await Permission.notification.request();
     }
   }
-
+  void _showAdBottomSheet() {
+    Get.bottomSheet(
+      Container(
+        height: 400,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Expanded(
+              child: AspectRatio(
+                aspectRatio: _controller.value.aspectRatio,
+                child: VideoPlayer(_controller),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                _controller.pause(); // Pause the video when closing the bottom sheet
+                Get.back();
+              },
+              child: Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.circular(100)
+                ),
+                child:  Icon(Icons.close,color: Colors.white,),
+              )
+            ),
+          ],
+        ),
+      ),
+      isDismissible: true,
+      backgroundColor: Colors.transparent,
+    );
+    _controller.play(); // Play the video when the bottom sheet is shown
+  }
   Future<void> _initializeNotifications() async {
     const AndroidInitializationSettings initializationSettingsAndroid =
     AndroidInitializationSettings('@mipmap/ic_launcher');
-
-
 
     const InitializationSettings initializationSettings = InitializationSettings(
         android: initializationSettingsAndroid);
@@ -158,6 +199,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
   final limitedProducts = dataProduct.take(2).toList();
+
   @override
   Widget build(BuildContext context) {
     controller.checkForUpdate();
@@ -253,13 +295,6 @@ class _HomePageState extends State<HomePage> {
                 _sectionTitle3('Today Deals'),
                 SizedBox(height: 20),
                 _todaydeals(context),
-                // _sectionTitle4('News'),
-                // SizedBox(height: 20),
-                // TodayDeals(),
-                // SizedBox(height: 40),
-                // _sectionTitle('News'),
-                // SizedBox(height: 20),
-                // News(),
               ],
             ),
           ),
@@ -333,7 +368,7 @@ class _HomePageState extends State<HomePage> {
         _menuItemHelp(() => Get.toNamed(Routes.EMERGENCY), 'assets/icons/help.png', "Emergency\nService"),
         _menuItem(() => Get.toNamed(Routes.BOOKING), 'assets/icons/bookingservice.png', "Booking\nService"),
         _menuItem(() => Get.toNamed(Routes.BOOKING), 'assets/icons/repear.png', "Repair &\nMaintenance"),
-        _menuItembenz(() => _CommingSoon(context), 'assets/logo/logo_comunity.png', "Comunity\n"),
+        _menuItembenz(() => _CommingSoon(context), 'assets/logo/logo_community.jpeg', "Community\n"),
       ],
     );
   }
@@ -626,9 +661,9 @@ class _HomePageState extends State<HomePage> {
                 physics: NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: constraints.maxWidth < 600 ? 2 : 4,
-                  crossAxisSpacing: 10,
+                  crossAxisSpacing: 9,
                   mainAxisSpacing: 0.9,
-                  childAspectRatio: 0.60,
+                  childAspectRatio: 0.56,
                 ),
                 itemCount: dataProduct2.length,
                 itemBuilder: (context, index) {

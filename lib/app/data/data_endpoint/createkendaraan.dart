@@ -28,6 +28,7 @@ class Data {
   int? idTipe;
   String? warna;
   String? tahun;
+  String? vinnumber;
   int? idCustomer;
   String? updatedAt;
   String? createdAt;
@@ -39,6 +40,7 @@ class Data {
         this.idTipe,
         this.warna,
         this.tahun,
+        this.vinnumber,
         this.idCustomer,
         this.updatedAt,
         this.createdAt,
@@ -50,6 +52,7 @@ class Data {
     idTipe = json['id_tipe'];
     warna = json['warna'];
     tahun = json['tahun'];
+    vinnumber = json['vin_number'];
     idCustomer = json['id_customer'];
     updatedAt = json['updated_at'];
     createdAt = json['created_at'];
@@ -63,6 +66,7 @@ class Data {
     data['id_tipe'] = this.idTipe;
     data['warna'] = this.warna;
     data['tahun'] = this.tahun;
+    data['vin_number'] = this.vinnumber;
     data['id_customer'] = this.idCustomer;
     data['updated_at'] = this.updatedAt;
     data['created_at'] = this.createdAt;

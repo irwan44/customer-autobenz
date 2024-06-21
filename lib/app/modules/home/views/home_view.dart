@@ -32,7 +32,7 @@ class _HomeViewState extends State<HomeView> {
     HomePage(),
     YouTubeVideoList(),
     HistoryView(),
-    ProfileView(),
+    const ProfileView(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -40,34 +40,43 @@ class _HomeViewState extends State<HomeView> {
       extendBodyBehindAppBar: false,
       appBar: AppBar(
         surfaceTintColor: Colors.transparent,
-        title: Text(""),
+        title: const Text(""),
         toolbarHeight: 0,
         automaticallyImplyLeading: false,
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.transparent,
           statusBarIconBrightness: Brightness.dark,
           statusBarBrightness: Brightness.light,
-          systemNavigationBarColor: MyColors.appPrimaryColor,
+          systemNavigationBarColor: Colors.yellow,
         ),
       ),
       body: _pages[_selectedIndex],
-      bottomNavigationBar: BottomAppBar(
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.black,Colors.red, Colors.yellow], // Gradient colors
+            begin: Alignment.center,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child : BottomAppBar(
         height: 100,
-        color: MyColors.appPrimaryColor,
-        shape: CircularNotchedRectangle(),
+        color: Colors.transparent,
+        shape: const CircularNotchedRectangle(),
         notchMargin: 2.0,
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             _buildIconButton('assets/icons/octicon_home-16.svg', 'Home', 0),
-            SizedBox(width: 10), // S
+            const SizedBox(width: 10), // S
             _buildIconButton('assets/icons/youtube.svg', 'Channel', 1),
-            SizedBox(width: 90), // Space for FAB
+            const SizedBox(width: 90), // Space for FAB
             _buildIconButton('assets/icons/icon-park-outline_history-query.svg', 'History', 2),
-            SizedBox(width: 10), // S
+            const SizedBox(width: 10), // S
             _buildIconButton('assets/icons/gridicons_user.svg', 'Profile', 3),
           ],
+        ),
         ),
       ),
       floatingActionButton: SizedBox(
@@ -76,62 +85,6 @@ class _HomeViewState extends State<HomeView> {
         child:
         FloatingActionButton(
           onPressed: () {
-            // showModalBottomSheet(
-            //   showDragHandle: true,
-            //   context: context,
-            //   shape: RoundedRectangleBorder(
-            //     borderRadius: BorderRadius.vertical(
-            //       top: Radius.circular(25.0),
-            //     ),
-            //   ),
-            //   builder: (context) {
-            //     return Container(
-            //       width: double.infinity,
-            //       child: Column(
-            //         mainAxisAlignment: MainAxisAlignment.start,
-            //         crossAxisAlignment: CrossAxisAlignment.start,
-            //         children: <Widget>[
-            //           Container(
-            //               width: double.infinity,
-            //               margin: EdgeInsets.symmetric(horizontal: 20),
-            //               padding: EdgeInsets.all(10),
-            //               decoration: BoxDecoration(
-            //                 color: Colors.redAccent,
-            //                 borderRadius: BorderRadius.circular(20),
-            //               ),
-            //               child: Row(children: [
-            //                 SizedBox(
-            //                   height: 70,
-            //                   child:
-            //                   SvgPicture.asset('assets/icons/booking.svg'),),
-            //                 SizedBox(width: 10,),
-            //                 Text('Emergency Service', style: GoogleFonts.nunito(color : Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
-            //               ],)
-            //           ),
-            //           SizedBox(height: 10,),
-            //           Container(
-            //               width: double.infinity,
-            //               padding: EdgeInsets.all(10),
-            //               margin: EdgeInsets.symmetric(horizontal: 20),
-            //               decoration: BoxDecoration(
-            //                 color: Colors.blueAccent,
-            //                 borderRadius: BorderRadius.circular(20),
-            //               ),
-            //               child: Row(children: [
-            //                 SizedBox(
-            //                   height: 70,
-            //                   child:
-            //                   SvgPicture.asset('assets/logo/bookingservice.svg'),),
-            //                 SizedBox(width: 10,),
-            //                 Text('Emergency Service', style: GoogleFonts.nunito(color : Colors.white, fontSize: 20, fontWeight: FontWeight.bold),),
-            //               ],)
-            //           ),
-            //           SizedBox(height: 40,)
-            //         ],
-            //       ),
-            //     );
-            //   },
-            // );
             Get.toNamed(Routes.BOOKING);
           },
           backgroundColor: MyColors.appPrimarykuning,
@@ -155,9 +108,9 @@ class _HomeViewState extends State<HomeView> {
         children: [
           IconButton(
             icon: isSelected ? AnimatedContainer(
-              duration: Duration(milliseconds: 300), // Durasi animasi
+              duration: const Duration(milliseconds: 300), // Durasi animasi
               curve: Curves.bounceIn,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               width: 40,
               height: 40,
               decoration: BoxDecoration(
@@ -178,7 +131,7 @@ class _HomeViewState extends State<HomeView> {
             ),
             onPressed: () => _onItemTapped(index),
           ),
-          Text(label, style: GoogleFonts.nunito(color: Colors.white, fontSize: 12))
+          Text(label, style: GoogleFonts.nunito(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold))
         ]
     );
   }
