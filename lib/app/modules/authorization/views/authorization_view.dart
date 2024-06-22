@@ -40,7 +40,7 @@ class AuthorizationView extends GetView<AuthorizationController> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Container(
-              height: 700,
+              height: 600,
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -50,7 +50,7 @@ class AuthorizationView extends GetView<AuthorizationController> {
                     Colors.black
                         .withOpacity(0.0),
                     Colors.black
-                        .withOpacity(0.9),
+                        .withOpacity(0.2),
                     Colors.black,
                   ],
                 ),

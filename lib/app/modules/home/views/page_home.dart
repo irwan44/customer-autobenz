@@ -59,9 +59,9 @@ class _HomePageState extends State<HomePage> {
     _initializeNotifications();
     _controller = VideoPlayerController.asset('assets/video/infinix_video.mp4')
       ..initialize().then((_) {
-        setState(() {}); // Update the UI when the video is initialized
+        setState(() {});
       });
-    Future.delayed(Duration(seconds: 0), () {
+    Future.delayed(Duration(seconds: 5), () {
       _showAdBottomSheet();
     });
   }
@@ -74,7 +74,10 @@ class _HomePageState extends State<HomePage> {
   void _showAdBottomSheet() {
     Get.bottomSheet(
       Container(
-        height: 400,
+        height: 260,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(10))
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
@@ -721,7 +724,7 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       Icon(Icons.shield_moon_rounded, color: Colors.green),
                                       SizedBox(width: 5),
-                                      Text('Dilayani AutoBenz', style: GoogleFonts.nunito(color: Colors.grey)),
+                                      Text('Dilayani RealAuto', style: GoogleFonts.nunito(color: Colors.grey)),
                                     ],
                                   ),
                                 ],),),

@@ -138,7 +138,7 @@ class _LihatSemuaTodayState extends State<LihatSemuaToday> {
                                 children: [
                                   Icon(Icons.shield_moon_rounded, color: Colors.green),
                                   SizedBox(width: 5),
-                                  Text('Dilayani Bengkelly', style: GoogleFonts.nunito(color: Colors.grey)),
+                                  Text('Dilayani RealAuto', style: GoogleFonts.nunito(color: Colors.grey)),
                                 ],
                               ),
                               ],),),

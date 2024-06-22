@@ -83,7 +83,7 @@ class API {
           } else {
             String token = responseData['token'];
             LocalStorages.setToken(token); // Simpan token
-            Get.snackbar('Selamat Datang', 'Pelanggan Bengkelly',
+            Get.snackbar('Selamat Datang', 'Pelanggan Real Auto Benz',
                 backgroundColor:Colors.green,
                 colorText: Colors.white
             );
